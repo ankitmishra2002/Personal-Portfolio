@@ -50,9 +50,9 @@ const projectsData = [
     imageBg: 'from-blue-600/30 via-violet-900/40 to-slate-900',
     headerIcon: '👤 Portfolio',
     description: 'My own portfolio website built with modern technologies.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: 'https://ankitmishra.example.com',
-    codeUrl: 'https://github.com/ankitmishra/portfolio',
+    tags: ['React', 'Tailwind CSS', 'JavaScript'],
+    liveUrl: 'https://ankit-portfolio-six-mu.vercel.app/',
+    codeUrl: 'https://github.com/ankitmishra2002/Personal-Portfolio',
     details: 'Fully responsive glassmorphism dark aesthetic portfolio showcasing skills, projects, and contact details.'
   }
 ];
