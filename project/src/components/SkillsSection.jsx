@@ -2,7 +2,7 @@ import React from 'react';
 import { Quote } from 'lucide-react';
 
 // Custom SVG Icons for Tech Stack to accurately mirror the design badges
-const TechIcons = {
+const getTechIcons = (isDarkMode) => ({
   html5: (
     <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 3l1.8 17 6.2 1.8 6.2-1.8L20 3H4z" fill="#E44D26" stroke="none" />
@@ -43,9 +43,9 @@ const TechIcons = {
   ),
   express: (
     <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
-      <rect width="32" height="32" rx="8" className="fill-slate-900 dark:fill-slate-100" />
-      <path d="M7.5 17.5h7.5c0-3.2-1.8-5-4.5-5s-4.5 1.8-4.5 5c0 3.2 2 5 4.7 5 2.3 0 3.9-1.1 4.4-2.7h-2c-.4.7-1.3 1.1-2.4 1.1-1.6 0-2.7-1-2.9-2.5zm2.6-3.3c1.3 0 2.1.8 2.2 1.9h-4.3c.2-1.1 1-1.9 2.1-1.9z" className="fill-white dark:fill-slate-900" />
-      <path d="M16.5 12.8h2.3l2.2 3.4 2.2-3.4h2.3l-3.3 4.8 3.5 5.2h-2.3l-2.4-3.7-2.4 3.7h-2.3l3.5-5.2-3.3-4.8z" className="fill-white dark:fill-slate-900" />
+      <rect width="32" height="32" rx="8" fill={isDarkMode ? '#F8FAFC' : '#0F172A'} />
+      <path d="M7.5 17.5h7.5c0-3.2-1.8-5-4.5-5s-4.5 1.8-4.5 5c0 3.2 2 5 4.7 5 2.3 0 3.9-1.1 4.4-2.7h-2c-.4.7-1.3 1.1-2.4 1.1-1.6 0-2.7-1-2.9-2.5zm2.6-3.3c1.3 0 2.1.8 2.2 1.9h-4.3c.2-1.1 1-1.9 2.1-1.9z" fill={isDarkMode ? '#0F172A' : '#FFFFFF'} />
+      <path d="M16.5 12.8h2.3l2.2 3.4 2.2-3.4h2.3l-3.3 4.8 3.5 5.2h-2.3l-2.4-3.7-2.4 3.7h-2.3l3.5-5.2-3.3-4.8z" fill={isDarkMode ? '#0F172A' : '#FFFFFF'} />
     </svg>
   ),
   java: (
@@ -76,13 +76,15 @@ const TechIcons = {
     </svg>
   ),
   github: (
-    <svg className="w-8 h-8 text-slate-800 dark:text-slate-200" viewBox="0 0 24 24" fill="currentColor">
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill={isDarkMode ? '#FFFFFF' : '#0F172A'}>
       <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
     </svg>
   ),
   vscode: (
-    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#007ACC">
-      <path d="M23.15 2.587L18.21.21a1.49 1.49 0 00-1.7.34l-8.6 8.04-4.58-3.47a1.05 1.05 0 00-1.39.11L.26 6.85a1.05 1.05 0 000 1.47l4.16 3.68-4.16 3.68a1.05 1.05 0 000 1.47l1.68 1.62a1.05 1.05 0 001.39.11l4.58-3.47 8.6 8.04a1.49 1.49 0 001.7.34l4.94-2.38A1.49 1.49 0 0024 20.2V3.8a1.49 1.49 0 00-.85-1.213z" />
+    <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none">
+      <path d="M17.5 2.5L7 10.5 2.5 7 0 8.5 4.5 12 0 15.5 2.5 17 7 13.5 17.5 21.5 24 19V5L17.5 2.5Z" fill="#007ACC" />
+      <path d="M17.5 16.5L10 12L17.5 7.5V16.5Z" fill="#005A9E" />
+      <path d="M17.5 2.5L24 5V19L17.5 21.5V2.5Z" fill="#0065A9" opacity="0.8" />
     </svg>
   ),
   postman: (
@@ -90,44 +92,47 @@ const TechIcons = {
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
     </svg>
   )
-};
+});
 
-const skillCategories = [
-  {
-    title: 'Frontend Development',
-    skills: [
-      { name: 'HTML5', icon: TechIcons.html5 },
-      { name: 'CSS3', icon: TechIcons.css3 },
-      { name: 'JavaScript', icon: TechIcons.javascript },
-      { name: 'React', icon: TechIcons.react },
-      { name: 'Tailwind CSS', icon: TechIcons.tailwind },
-    ]
-  },
-  {
-    title: 'Backend Development',
-    skills: [
-      { name: 'Node.js', icon: TechIcons.nodejs },
-      { name: 'Express.js', icon: TechIcons.express },
-      { name: 'REST APIs', icon: TechIcons.restapi },
-    ]
-  },
-  {
-    title: 'Database',
-    skills: [
-      { name: 'MongoDB', icon: TechIcons.mongodb },
-      { name: 'MySQL', icon: TechIcons.mysql },
-    ]
-  },
-  {
-    title: 'Tools & Others',
-    skills: [
-      { name: 'Git', icon: TechIcons.git },
-      { name: 'GitHub', icon: TechIcons.github },
-      { name: 'VS Code', icon: TechIcons.vscode },
-      { name: 'Postman', icon: TechIcons.postman },
-    ]
-  }
-];
+const getSkillCategories = (isDarkMode) => {
+  const icons = getTechIcons(isDarkMode);
+  return [
+    {
+      title: 'Frontend Development',
+      skills: [
+        { name: 'HTML5', icon: icons.html5 },
+        { name: 'CSS3', icon: icons.css3 },
+        { name: 'JavaScript', icon: icons.javascript },
+        { name: 'React', icon: icons.react },
+        { name: 'Tailwind CSS', icon: icons.tailwind },
+      ]
+    },
+    {
+      title: 'Backend Development',
+      skills: [
+        { name: 'Node.js', icon: icons.nodejs },
+        { name: 'Express.js', icon: icons.express },
+        { name: 'REST APIs', icon: icons.restapi },
+      ]
+    },
+    {
+      title: 'Database',
+      skills: [
+        { name: 'MongoDB', icon: icons.mongodb },
+        { name: 'MySQL', icon: icons.mysql },
+      ]
+    },
+    {
+      title: 'Tools & Others',
+      skills: [
+        { name: 'Git', icon: icons.git },
+        { name: 'GitHub', icon: icons.github },
+        { name: 'VS Code', icon: icons.vscode },
+        { name: 'Postman', icon: icons.postman },
+      ]
+    }
+  ];
+};
 
 const SkillsSection = ({ isDarkMode }) => {
   return (
@@ -149,7 +154,7 @@ const SkillsSection = ({ isDarkMode }) => {
 
         {/* Skill Category Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skillCategories.map((category, idx) => (
+          {getSkillCategories(isDarkMode).map((category, idx) => (
             <div
               key={idx}
               className={`p-6 sm:p-8 rounded-3xl border transition-all duration-300 hover:border-blue-500/40 hover:shadow-xl ${isDarkMode
