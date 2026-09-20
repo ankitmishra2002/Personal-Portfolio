@@ -57,7 +57,7 @@ const ContactSection = ({ isDarkMode }) => {
 
                 {/* Name */}
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold tracking-wider text-slate-400">Name</label>
+                  <label className={`text-xs uppercase font-bold tracking-wider ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Name</label>
                   <input
                     type="text"
                     required
@@ -73,7 +73,7 @@ const ContactSection = ({ isDarkMode }) => {
 
                 {/* Email */}
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold tracking-wider text-slate-400">Email</label>
+                  <label className={`text-xs uppercase font-bold tracking-wider ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Email</label>
                   <input
                     type="email"
                     required
@@ -89,7 +89,7 @@ const ContactSection = ({ isDarkMode }) => {
 
                 {/* Subject */}
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold tracking-wider text-slate-400">Subject</label>
+                  <label className={`text-xs uppercase font-bold tracking-wider ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Subject</label>
                   <input
                     type="text"
                     required
@@ -105,7 +105,7 @@ const ContactSection = ({ isDarkMode }) => {
 
                 {/* Message */}
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold tracking-wider text-slate-400">Message</label>
+                  <label className={`text-xs uppercase font-bold tracking-wider ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Message</label>
                   <textarea
                     rows="5"
                     required
@@ -164,8 +164,10 @@ const ContactSection = ({ isDarkMode }) => {
                       <IconComp className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-xs uppercase font-bold tracking-wider text-slate-400">{item.label}</h4>
-                      <p className="text-base font-semibold text-slate-200 dark:text-slate-200 group-hover:text-blue-400 transition-colors">
+                      <h4 className={`text-xs uppercase font-bold tracking-wider ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>{item.label}</h4>
+                      <p className={`text-base font-semibold transition-colors ${
+                        isDarkMode ? 'text-slate-200 group-hover:text-blue-400' : 'text-slate-800 group-hover:text-blue-600'
+                      }`}>
                         {item.value}
                       </p>
                     </div>
@@ -179,7 +181,7 @@ const ContactSection = ({ isDarkMode }) => {
               ? 'bg-[#131b2e]/90 border-slate-800/90 text-white'
               : 'bg-white border-slate-200 text-slate-900'
               }`}>
-              <h4 className="text-sm font-bold tracking-wide uppercase text-slate-400">Follow Me</h4>
+              <h4 className={`text-sm font-bold tracking-wide uppercase ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>Follow Me</h4>
               <div className="flex items-center gap-4">
                 {[
                   { icon: GithubIcon, href: 'https://github.com/ankitmishra2002', label: 'GitHub' },
@@ -213,7 +215,7 @@ const ContactSection = ({ isDarkMode }) => {
               : 'bg-white border-slate-200 text-slate-900'
               }`}>
               <Quote className="w-6 h-6 text-blue-400 shrink-0 rotate-180" />
-              <p className="text-sm font-semibold italic text-slate-300 dark:text-slate-300 leading-relaxed">
+              <p className={`text-sm font-semibold italic leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
                 "Feel free to reach out - I'm always open to new opportunities and interesting projects!"
               </p>
             </div>

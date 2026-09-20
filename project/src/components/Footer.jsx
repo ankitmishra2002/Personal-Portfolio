@@ -20,7 +20,7 @@ const Footer = ({ isDarkMode }) => {
               <Code2 className="w-4 h-4" />
             </div>
             <p className="text-sm font-medium">
-              © {new Date().getFullYear()} <span className="font-bold text-white">Ankit Mishra</span>.
+              © {new Date().getFullYear()} <span className={`font-bold ${isDarkMode ? 'text-white' : 'text-slate-900'}`}>Ankit Mishra</span>.
             </p>
           </div>
 

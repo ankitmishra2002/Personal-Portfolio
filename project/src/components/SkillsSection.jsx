@@ -42,8 +42,10 @@ const TechIcons = {
     </svg>
   ),
   express: (
-    <svg className="w-8 h-8 text-slate-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <text x="3" y="16" fontSize="11" fontWeight="bold" fontFamily="monospace">express</text>
+    <svg className="w-8 h-8" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="8" className="fill-slate-900 dark:fill-slate-100" />
+      <path d="M7.5 17.5h7.5c0-3.2-1.8-5-4.5-5s-4.5 1.8-4.5 5c0 3.2 2 5 4.7 5 2.3 0 3.9-1.1 4.4-2.7h-2c-.4.7-1.3 1.1-2.4 1.1-1.6 0-2.7-1-2.9-2.5zm2.6-3.3c1.3 0 2.1.8 2.2 1.9h-4.3c.2-1.1 1-1.9 2.1-1.9z" className="fill-white dark:fill-slate-900" />
+      <path d="M16.5 12.8h2.3l2.2 3.4 2.2-3.4h2.3l-3.3 4.8 3.5 5.2h-2.3l-2.4-3.7-2.4 3.7h-2.3l3.5-5.2-3.3-4.8z" className="fill-white dark:fill-slate-900" />
     </svg>
   ),
   java: (
@@ -74,7 +76,7 @@ const TechIcons = {
     </svg>
   ),
   github: (
-    <svg className="w-8 h-8 text-slate-200" viewBox="0 0 24 24" fill="currentColor">
+    <svg className="w-8 h-8 text-slate-800 dark:text-slate-200" viewBox="0 0 24 24" fill="currentColor">
       <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
     </svg>
   ),
@@ -155,7 +157,9 @@ const SkillsSection = ({ isDarkMode }) => {
                 : 'bg-white border-slate-200 text-slate-900 shadow-md'
                 }`}
             >
-              <h3 className="text-xl font-bold mb-6 pb-3 border-b border-slate-700/50 dark:border-slate-800 flex items-center gap-2">
+              <h3 className={`text-xl font-bold mb-6 pb-3 border-b flex items-center gap-2 ${
+                isDarkMode ? 'border-slate-800 text-white' : 'border-slate-200 text-slate-900'
+              }`}>
                 <span className="w-2 h-2 rounded-full bg-blue-500"></span>
                 <span>{category.title}</span>
               </h3>
@@ -172,7 +176,9 @@ const SkillsSection = ({ isDarkMode }) => {
                     <div className="p-2 rounded-xl group-hover:scale-110 transition-transform duration-300">
                       {skill.icon}
                     </div>
-                    <span className="text-xs sm:text-sm font-semibold tracking-wide text-slate-300 dark:text-slate-300 group-hover:text-white">
+                    <span className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors ${
+                      isDarkMode ? 'text-slate-300 group-hover:text-white' : 'text-slate-700 group-hover:text-blue-600'
+                    }`}>
                       {skill.name}
                     </span>
                   </div>
@@ -189,7 +195,7 @@ const SkillsSection = ({ isDarkMode }) => {
           : 'bg-white border-slate-200 text-slate-900 shadow-sm'
           }`}>
           <Quote className="w-6 h-6 text-blue-400 shrink-0 rotate-180" />
-          <p className="text-base sm:text-lg font-semibold italic text-slate-300 dark:text-slate-300">
+          <p className={`text-base sm:text-lg font-semibold italic ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
             "Always eager to learn and work with new technologies."
           </p>
         </div>

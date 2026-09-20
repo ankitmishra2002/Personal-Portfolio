@@ -60,7 +60,7 @@ const AboutSection = ({ isDarkMode }) => {
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
                   </div>
-                  <p className="text-xs font-semibold text-slate-300 dark:text-slate-300 mt-1">Open to Work</p>
+                  <p className={`text-xs font-semibold mt-1 ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>Open to Work</p>
                   <p className="text-xs text-blue-400 font-bold">Full Stack Developer</p>
                 </div>
               </div>
@@ -97,8 +97,8 @@ const AboutSection = ({ isDarkMode }) => {
                       <IconComp className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-xs uppercase font-bold tracking-wider text-slate-400 mb-0.5">{item.label}</h4>
-                      <p className="text-sm sm:text-base font-semibold text-slate-200 dark:text-slate-200">{item.value}</p>
+                      <h4 className={`text-xs uppercase font-bold tracking-wider mb-0.5 ${isDarkMode ? 'text-slate-400' : 'text-slate-500'}`}>{item.label}</h4>
+                      <p className={`text-sm sm:text-base font-semibold ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}`}>{item.value}</p>
                     </div>
                   </div>
                 );
@@ -113,7 +113,9 @@ const AboutSection = ({ isDarkMode }) => {
               <div className="p-3 rounded-xl bg-purple-500/15 text-purple-400 shrink-0">
                 <Quote className="w-6 h-6 rotate-180" />
               </div>
-              <p className="text-base sm:text-lg font-bold italic tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-400">
+              <p className={`text-base sm:text-lg font-bold italic tracking-wide text-transparent bg-clip-text bg-gradient-to-r ${
+                isDarkMode ? 'from-blue-300 via-indigo-300 to-purple-400' : 'from-blue-600 via-indigo-600 to-purple-600'
+              }`}>
                 "Code. Learn. Build. Repeat."
               </p>
             </div>

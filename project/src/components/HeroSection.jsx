@@ -33,7 +33,7 @@ const HeroSection = ({ isDarkMode, onOpenCvModal }) => {
                   Mishra
                 </span>
               </h1>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-300 dark:text-slate-300">
+              <h2 className={`text-2xl sm:text-3xl lg:text-4xl font-bold ${isDarkMode ? 'text-slate-300' : 'text-slate-700'}`}>
                 Full Stack Developer
               </h2>
             </div>

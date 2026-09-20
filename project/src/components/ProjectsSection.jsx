@@ -141,7 +141,9 @@ const ProjectsSection = ({ isDarkMode }) => {
               {/* Card Body */}
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className={`text-xl font-bold transition-colors ${
+                    isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-slate-900 group-hover:text-blue-600'
+                  }`}>
                     {project.title}
                   </h3>
                   <p className={`text-sm line-clamp-2 ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
@@ -165,10 +167,14 @@ const ProjectsSection = ({ isDarkMode }) => {
                 </div>
 
                 {/* Action Links */}
-                <div className="flex items-center justify-between pt-4 border-t border-slate-800/60 text-xs font-bold">
+                <div className={`flex items-center justify-between pt-4 border-t text-xs font-bold ${
+                  isDarkMode ? 'border-slate-800/60' : 'border-slate-200'
+                }`}>
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1.5 text-blue-400 hover:text-blue-300 transition-colors group/btn"
+                    className={`inline-flex items-center gap-1.5 transition-colors group/btn ${
+                      isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-800'
+                    }`}
                   >
                     <span>Live Demo</span>
                     <ExternalLink className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
@@ -176,7 +182,9 @@ const ProjectsSection = ({ isDarkMode }) => {
 
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors"
+                    className={`inline-flex items-center gap-1.5 transition-colors ${
+                      isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-600 hover:text-slate-900'
+                    }`}
                   >
                     <span>View Code</span>
                     <Code2 className="w-3.5 h-3.5" />
@@ -197,10 +205,10 @@ const ProjectsSection = ({ isDarkMode }) => {
               <Plus className="w-7 h-7" />
             </div>
             <div>
-              <h3 className="text-lg font-bold text-slate-200 dark:text-slate-200">
+              <h3 className={`text-lg font-bold ${isDarkMode ? 'text-slate-200' : 'text-slate-800'}`}>
                 More Projects
               </h3>
-              <p className="text-sm font-semibold text-blue-400 mt-1">
+              <p className="text-sm font-semibold text-blue-500 mt-1">
                 Coming Soon...
               </p>
             </div>
@@ -213,14 +221,17 @@ const ProjectsSection = ({ isDarkMode }) => {
       {/* Interactive Project Preview Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className={`max-w-lg w-full rounded-3xl p-6 border shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-200 ${isDarkMode ? 'bg-[#131b2e] border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'
-            }`}>
+          <div className={`max-w-lg w-full rounded-3xl p-6 border shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-200 ${
+            isDarkMode ? 'bg-[#131b2e] border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-900'
+          }`}>
 
             <div className="flex items-center justify-between">
               <h3 className="text-xl font-bold">{selectedProject.title}</h3>
               <button
                 onClick={() => setSelectedProject(null)}
-                className="p-1.5 rounded-xl hover:bg-slate-800 text-slate-400 hover:text-white"
+                className={`p-1.5 rounded-xl transition-colors ${
+                  isDarkMode ? 'hover:bg-slate-800 text-slate-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500 hover:text-slate-900'
+                }`}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -232,12 +243,14 @@ const ProjectsSection = ({ isDarkMode }) => {
               </span>
             </div>
 
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>
               {selectedProject.description}
             </p>
 
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300 space-y-1">
-              <span className="font-bold text-blue-400 block">Key Features & Highlights:</span>
+            <div className={`p-4 rounded-xl border text-xs space-y-1 ${
+              isDarkMode ? 'bg-slate-900/60 border-slate-800 text-slate-300' : 'bg-slate-50 border-slate-200 text-slate-700'
+            }`}>
+              <span className="font-bold text-blue-500 block">Key Features & Highlights:</span>
               <p>{selectedProject.details}</p>
             </div>
 
@@ -255,7 +268,9 @@ const ProjectsSection = ({ isDarkMode }) => {
                 href={selectedProject.codeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 py-2.5 rounded-xl border border-slate-700 hover:bg-slate-800 font-bold text-slate-200 text-center text-sm flex items-center justify-center gap-2"
+                className={`flex-1 py-2.5 rounded-xl border font-bold text-center text-sm flex items-center justify-center gap-2 transition-colors ${
+                  isDarkMode ? 'border-slate-700 hover:bg-slate-800 text-slate-200' : 'border-slate-300 hover:bg-slate-100 text-slate-700'
+                }`}
               >
                 <Code2 className="w-4 h-4" />
                 <span>GitHub Code</span>
